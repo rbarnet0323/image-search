@@ -15,7 +15,7 @@ class Search extends Component {
     };
     handleClick = () => {
         if (this.state.keyword.length > 0) {
-            fetch(`http://localhost:8080/search/${this.state.keyword}/1`).then(res => {
+            fetch(`https://image-search-middleware.herokuapp.com/search/${this.state.keyword}/1`).then(res => {
                 return res.json();
             }).then(res => {
                 this.setState({ images: res.results });
@@ -25,7 +25,7 @@ class Search extends Component {
         }
     };
     loadMore = () => {
-        fetch(`http://localhost:8080/search/${this.state.keyword}/${this.state.page}}`).then((res) => {
+        fetch(`https://image-search-middleware.herokuapp.com/search/${this.state.keyword}/${this.state.page}}`).then((res) => {
             return res.json();
         }).then(res => {
             this.setState({ images: this.state.images.concat(res.results) });
